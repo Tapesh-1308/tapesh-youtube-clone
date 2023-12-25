@@ -8,6 +8,7 @@ import { FeedContext } from "../context/FeedContext";
 import { fetchDataFromApi } from "../utils/api";
 import RelatedVideoCard from "../components/RelatedVideoCard";
 import useScrollTop from "../hooks/useScrollTop";
+import useMobileMenuHandler from "../hooks/useMobileMenuHandler";
 
 const VideoDetails = () => {
   const { videoId } = useParams();
@@ -54,6 +55,8 @@ const VideoDetails = () => {
 
   useScrollTop();
 
+  const { disabled } = useMobileMenuHandler();
+
   if (!videoData) return;
 
   const {
@@ -62,7 +65,11 @@ const VideoDetails = () => {
   } = videoData;
 
   return (
-    <div className="flex justify-center flex-row bg-black md:ml-[240px]">
+    <div
+      className={`flex justify-center flex-row bg-black md:ml-[240px] ${
+        disabled ? "pointer-events-none" : ""
+      }`}
+    >
       <div className="w-full max-w-[1280px] flex flex-col lg:flex-row">
         <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6">
           <div className="h-[225px] md:h-[330px] lg:h-[400px] xl:h[550px] lg:ml-0 mr-[-16px] lg:mr-0">

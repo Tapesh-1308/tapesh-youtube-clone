@@ -5,6 +5,7 @@ import { fetchDataFromApi } from "../utils/api";
 import { FeedContext } from "../context/FeedContext";
 import VideoCard from "../components/VideoCard";
 import useScrollTop from "../hooks/useScrollTop";
+import useMobileMenuHandler from "../hooks/useMobileMenuHandler";
 
 const ChannelDetails = () => {
   const [channelData, setChannelData] = useState(null);
@@ -47,10 +48,10 @@ const ChannelDetails = () => {
     fetchChannelVideosData();
   }, [channelId]);
 
+  const { handleMobileMenu } = useMobileMenuHandler();
   if (!channelData || !channelVideos) return;
-
   return (
-    <div className="md:ml-[240px] min-h-screen">
+    <div className="md:ml-[240px] min-h-screen" onClick={handleMobileMenu}>
       <div className="relative">
         <div className="flex justify-center items-center rounded-lg w-[356px] md:w-[320px] h-[326px] mx-auto shadow-none">
           <div className="flex flex-col justify-center items-center text-white">

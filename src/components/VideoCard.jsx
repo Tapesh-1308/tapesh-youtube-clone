@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { timeAgo } from "../utils/constants";
+import useMobileMenuHandler from "../hooks/useMobileMenuHandler";
 
 const VideoCard = ({
   video: {
@@ -7,8 +8,9 @@ const VideoCard = ({
     snippet,
   },
 }) => {
+  const { disabled, handleMobileMenu } = useMobileMenuHandler();
   return (
-    <Link to={`/video/${videoId}`}>
+    <Link to={!disabled && `/video/${videoId}`} onClick={handleMobileMenu}>
       <div className="flex flex-col mb-8">
         <div className="h-48 md:h-40 md:rounded-xl overflow-hidden">
           <img
