@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const BASE_URL = "https://youtube-v31.p.rapidapi.com/";
-const SEARCH_SUGGESTION_URL = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+const SEARCH_SUGGESTION_URL = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 
 const options = {
     params: {
