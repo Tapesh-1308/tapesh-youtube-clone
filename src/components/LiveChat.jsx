@@ -27,7 +27,7 @@ const LiveChat = () => {
 	return (
 		<div className="flex flex-col items-center justify-center max-w-[400px] bg-[#232323] h-[400px] mb-5">
 			<h1 className="text-lg font-bold text-white w-full p-3">Live Chat</h1>
-		<div className=" p-4 rounded-lg border-gray-400 w-full  text-white   overflow-y-auto flex flex-col-reverse">
+		<div className=" p-4 rounded-lg border-gray-400 w-full  text-white   overflow-y-auto flex flex-col-reverse min-h-[300px]">
 			{liveChat.messages?.map((message, idx) => (
 				<li key={idx} className="flex ">
 					<h1 className="font-bold">{message.name}</h1>
@@ -41,7 +41,7 @@ const LiveChat = () => {
 				addLiveMessage("Tapesh Dua", liveMessage);
 				setLiveMessage("");
 			}}>
-				<input type="text" className="p-2 w-full basis-2/3 rounded-s-lg outline-none" value={liveMessage} onChange={(e) => setLiveMessage(e.target.value)}/>
+				<input type="text" className="p-2 w-full basis-2/3 rounded-s-lg outline-none" value={liveMessage} onChange={(e) => setLiveMessage(e.target.value)} placeholder="type message.."/>
 				<button type="submit" className="p-2 w-full text-white rounded-e-lg basis-1/3 bg-[#000]">Send</button>
 			</form>
 			</div>
