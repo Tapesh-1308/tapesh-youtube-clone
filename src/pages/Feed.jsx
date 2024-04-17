@@ -41,7 +41,7 @@ const Feed = () => {
   useScrollTop();
 
   return (
-    <div className="w-full bg-black md:ml-[240px]">
+    <div className="pt-14 w-full bg-black md:ml-[240px]">
       <InfiniteScroll
         dataLength={videosData?.items?.length || 0}
         next={fetchNextData}

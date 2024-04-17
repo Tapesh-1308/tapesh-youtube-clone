@@ -7,31 +7,34 @@ import SearchResults from "./pages/SearchResult.jsx";
 
 import "./index.css";
 import {
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
+	Route,
+	createBrowserRouter,
+	createRoutesFromElements,
+	RouterProvider,
 } from "react-router-dom";
 import { ContextProvider } from "./context/FeedContext.jsx";
 import ChannelDetails from "./pages/ChannelDetails.jsx";
+import LiveChatContextProvider from "./context/LiveChatContext.jsx";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route index element={<Feed />} />
-      <Route path="/video/:videoId" element={<VideoDetails />} />
-      <Route path="/channel/:channelId" element={<ChannelDetails />} />
-      <Route path="search/:searchTerm" element={<SearchResults />} />
-    </Route>
-  )
+	createRoutesFromElements(
+		<Route path="/" element={<App />}>
+			<Route index element={<Feed />} />
+			<Route path="/video/:videoId" element={<LiveChatContextProvider><VideoDetails /></LiveChatContextProvider>} />
+			<Route path="/channel/:channelId" element={<ChannelDetails />} />
+			<Route path="search/:searchTerm" element={<SearchResults />} />
+		</Route>
+	)
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ContextProvider>
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
-    </ContextProvider>
-  </React.StrictMode>
+	<React.StrictMode>
+		<ContextProvider>
+			
+				<RouterProvider router={router}>
+					<App />
+				</RouterProvider>
+			
+		</ContextProvider>
+	</React.StrictMode>
 );

@@ -49,7 +49,7 @@ const Header = () => {
 	};
 
 	return (
-		<div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 md:px-5 bg-white dark:bg-black">
+		<div className="fixed w-full top-0 flex flex-row items-center justify-between h-14 md:px-5 bg-white dark:bg-black z-[99]">
 			{isLoading && <Loader />}
 
 			<div className="flex items-center">
@@ -111,14 +111,17 @@ const Header = () => {
 									className="w-full px-4 py-1 flex items-center justify-between hover:bg-white/10"
 									key={idx}
 								>
-									<Link
+									<button
 										className="flex gap-2 items-center cursor-default"
-										to={`search/${suggestion}`}
-										onClick={() => setIsSuggestionBox(false)}
+										type="submit"
+										onClick={() => {
+											setIsSuggestionBox(false);
+											setQuery(suggestion);
+										}}
 									>
 										<IoIosSearch className="text-white text-lg" />
 										{suggestion}
-									</Link>
+									</button>
 									<button type="button" onClick={() => setQuery(suggestion)}>
 										<RxArrowTopRight className="text-white text-xl" />
 									</button>

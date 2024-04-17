@@ -51,7 +51,7 @@ const ChannelDetails = () => {
   const { handleMobileMenu } = useMobileMenuHandler();
   if (!channelData || !channelVideos) return;
   return (
-    <div className="md:ml-[240px] min-h-screen" onClick={handleMobileMenu}>
+    <div className="pt-14 md:ml-[240px] min-h-screen" onClick={handleMobileMenu}>
       <div className="relative">
         <div className="flex justify-center items-center rounded-lg w-[356px] md:w-[320px] h-[326px] mx-auto shadow-none">
           <div className="flex flex-col justify-center items-center text-white">
@@ -74,7 +74,7 @@ const ChannelDetails = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5 ">
         {channelVideos?.map(
-          (video, idx) => video.id.videoId && <VideoCard video={video} />
+          (video, idx) => video.id.videoId && <VideoCard key={idx} video={video} />
         )}
       </div>
     </div>
